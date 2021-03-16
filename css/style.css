@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+:root {
+  --dark-blue: hsl(240, 38%, 20%);
+  --grayish-blue: hsl(240, 18%, 77%);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 32px;
+}
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  background-color: white;
+  background-image: url("../images/pattern-curve.svg"),
+    url("../images/pattern-bg.svg");
+  background-repeat: no-repeat;
+  background-position: left bottom, right 3rem center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 48rem;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../images/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  background-position: 7% 45%;
+}
+.slider-items {
+  width: calc(3 * 48rem);
+  display: flex;
+  transition: transform 0.3s ease;
+}
+.item {
+  width: 48rem;
+  min-height: 24.6rem;
+  position: relative;
+  padding-right: 1rem;
+}
+.item img {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  z-index: -1;
+  width: 48%;
+  box-shadow: 0 12px 18px 0 rgb(0 0 0 / 20%);
+}
+
+.item-description {
+  padding-top: 11rem;
+  width: 56%;
+}
+
+.item-text {
+  display: block;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--dark-blue);
+  margin-bottom: 2rem;
+}
+
+.item-name,
+.item-job {
+  display: inline-block;
+}
+
+.item-name {
+  font-size: 0.65rem;
+  color: var(--dark-blue);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+.item-job {
+  color: var(--grayish-blue);
+  font-size: 0.65rem;
+  font-weight: 300;
+}
+
+.controls {
+  background-color: white;
+  position: absolute;
+  right: 18rem;
+  bottom: 0.8rem;
+  border-radius: 3.2rem;
+  box-shadow: 0 12px 18px 0 rgb(0 0 0 / 20%);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}

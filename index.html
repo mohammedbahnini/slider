@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+  </head>
+  <body>
+    <!-- “ I’ve been interested in coding for a while but never taken the jump, until now. 
+  I couldn’t recommend this course enough. I’m now in the job of my dreams and so 
+  excited about the future. ”
+
+  Tanya Sinclair
+  UX Engineer
+
+  “ If you want to lay the best foundation possible I’d recommend taking this course. 
+  The depth the instructors go into is incredible. I now feel so confident about 
+  starting up as a professional developer. ”
+
+  John Tarkpor
+  Junior Front-end Developer -->
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+
+    <div class="slider" current-item="0">
+      <div class="slider-items">
+        <div class="item">
+          <img src="images/image-tanya.jpg" alt="" />
+          <div class="item-description">
+            <p class="item-text">
+              “ I’ve been interested in coding for a while but never taken the
+              jump, until now. I couldn’t recommend this course enough. I’m now
+              in the job of my dreams and so excited about the future. ”
+            </p>
+            <h1 class="item-name">Tanya Sinclair</h1>
+            <h1 class="item-job">UX Engineer</h1>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="images/image-john.jpg" alt="" />
+          <div class="item-description">
+            <p class="item-text">
+              “ If you want to lay the best foundation possible I’d recommend
+              taking this course. The depth the instructors go into is
+              incredible. I now feel so confident about starting up as a
+              professional developer. ”
+            </p>
+            <h1 class="item-name">John Tarkpor</h1>
+            <h1 class="item-job">UX Engineer</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <span class="btn btn-prev">
+          <img src="images/icon-prev.svg" alt="" />
+        </span>
+        <span class="btn btn-next">
+          <img src="images/icon-next.svg" alt="" />
+        </span>
+      </div>
+    </div>
+
+    <script>
+      window.onload = () => {
+        const itemsCount = document.querySelectorAll(".item").length;
+        const sliderWidth = document.querySelector(".slider").clientWidth;
+        const sliderItems = document.querySelector(".slider-items");
+        const slider = document.querySelector(".slider");
+        const btnNext = document.querySelector(".btn-next");
+        const btnPrev = document.querySelector(".btn-prev");
+
+        sliderItems.style.width = `${itemsCount * sliderWidth}px `;
+
+        btnNext.addEventListener("click", () => {
+          const currentIndex = slider.getAttribute("current-item");
+          const nextIndex = currentIndex * 1 + 1;
+          if (nextIndex < itemsCount) {
+            slider.setAttribute("current-item", nextIndex);
+            const slideValue = nextIndex * -sliderWidth;
+            sliderItems.style.transform = `translateX(${slideValue}px) `;
+          }
+        });
+
+        btnPrev.addEventListener("click", () => {
+          const currentIndex = slider.getAttribute("current-item");
+          const nextIndex = currentIndex * 1 - 1;
+          if (nextIndex >= 0) {
+            slider.setAttribute("current-item", nextIndex);
+            const slideValue = nextIndex * -sliderWidth;
+            sliderItems.style.transform = `translateX(${slideValue}px) `;
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
